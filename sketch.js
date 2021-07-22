@@ -2,7 +2,7 @@ const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
-var particle;
+var particle=[];
 
 function setup() {
   createCanvas(displayWidth-975,displayHeight-115);
@@ -113,11 +113,13 @@ function draw() {
   w7.display();
   ground.display();
   mparticle();
+  for(var i=0;i<particle.length;i++){
+  particle[i].display();
+ }
 }
-
 function mparticle(){
   if(frameCount % 10 === 0){
-   var y=Math.round(random(25,725));
-   particle=new Particle(000,y,15);
+   var x=Math.round(random(25,560));
+   particle.push(new Particle(x,10,15));
   }
 }
